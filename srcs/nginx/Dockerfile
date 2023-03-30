@@ -1,6 +1,6 @@
 FROM debian:buster
 WORKDIR /var/www/html
-RUN apt-get update && apt-get install -y nginx mariadb-server php-fpm wget vim
+RUN apt-get update && apt-get install nginx mariadb-server php-fpm wget vim -y
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
@@ -13,4 +13,4 @@ COPY file.conf /etc/nginx/conf.d/file.conf
 COPY script.sh /tmp/script.sh
 RUN chmod +x /tmp/script.sh
 RUN mkdir -p /var/run/nginx
-CMD ["/tmp/script.sh"]
+CMD ["sh", "/tmp/script.sh"]
