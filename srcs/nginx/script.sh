@@ -4,6 +4,7 @@ service mysql start
 service php7.3-fpm start
 nginx -g "daemon off;"
 
+touch helloWorld
 # Create database and user
 echo "CREATE DATABASE IF NOT EXISTS test ;
 CREATE USER IF NOT EXISTS 'ayoub'@'%' IDENTIFIED BY '123456789' ;
@@ -21,8 +22,6 @@ cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 sed -i "s/define('DB_NAME', 'database_name_here');/define('DB_NAME', 'test');/" /var/www/html/wp-config.php
 sed -i "s/define('DB_USER', 'username_here');/define('DB_USER', 'ayoub');/" /var/www/html/wp-config.php
 sed -i "s/define('DB_PASSWORD', 'password_here');/define('DB_PASSWORD', '123456789');/" /var/www/html/wp-config.php
-/bin/bash /tmp/script.php
-#sed -i "s/define('DB_USER', 'username_here');/define('DB_USER', 'test');/" /var/www/html/wp-config-sample.php
 # Update WordPress config file
 
 #sed -i -r "s/database_name_here/test/1" /var/www/html/wp-config-sample.php
