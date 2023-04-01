@@ -1,4 +1,0 @@
-version: "3"
-services:
-  NGINX:
-    container_name: nginx-container

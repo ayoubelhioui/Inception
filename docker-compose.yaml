@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  maria-db-app:
+    container_name: mariadb-container
+    build:
+      context: srcs/MariaDB
+      dockerfile: dockerfile
+    ports:
+      - "3306:3306"
+#  nginx-app:
+#    container_name: nginx-container
+#    build:
+#      context: srcs/nginx
+#      dockerfile: dockerfile
+#    ports:
+#      - "443:443"
