@@ -3,12 +3,6 @@
 mysql_install_db
 service mariadb start
 mysql_secure_installation << EOF
-mkdir /run/mysqld
-chmod 777 /run/mysqld/
-chown mysql:mysql /run/mysqld/
-
-
-
 Y
 Y
 www-data
