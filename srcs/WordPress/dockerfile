@@ -1,4 +1,6 @@
 FROM debian:buster
 RUN apt-get update && apt-get install php-fpm wget vim -y
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+COPY ./includes/script.sh /script.sh
+COPY ./includes/wp.conf /etc/php/7.3/fpm/pool.d/wwww.conf
+RUN chmod +x script.sh
 CMD ["sh", "script.sh"]

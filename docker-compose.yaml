@@ -6,9 +6,11 @@ services:
       context: srcs/MariaDB
       dockerfile: dockerfile
     volumes:
-      - /home/ael-hiou/data:/var/lib/mysql
+      - mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - my-network
   nginx-service:
     container_name: nginx-container
     build:
@@ -16,6 +18,10 @@ services:
       dockerfile: dockerfile
     ports:
       - "443:443"
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - my-network
   wordpress-service:
     container_name: wordpress-container
     build:
@@ -23,8 +29,12 @@ services:
       dockerfile: dockerfile
     ports:
         - "9000:9000"
-#volumes:
-#  maria-db-volume:
-#      driver: local
-#  mysql-volume:
-#    driver: local
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - my-network
+networks:
+  my-network:
+volumes:
+  wordpress:
+  mysql:
