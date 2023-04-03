@@ -1,7 +1,11 @@
 #!/bin/sh
 
 mysql_install_db
-service mariadb start
+
+mkdir -p /run/mysqld
+chown mysql:mysql /run/mysqld
+
+service mysql start
 mysql_secure_installation << EOF
 Y
 Y
@@ -19,5 +23,5 @@ GRANT ALL PRIVILEGES ON mydb.* TO 'ayoub'@'%';
 FLUSH PRIVILEGES;
 exit
 EOF
-service mariadb stop
+service mysql stop
 mysqld -user=ayoub

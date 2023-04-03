@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   maria-db-service:
+    hostname: mariadb
     container_name: mariadb-container
     build:
       context: srcs/MariaDB
@@ -12,6 +13,8 @@ services:
     networks:
       - my-network
   nginx-service:
+    depends_on:
+      -  wordpress-service
     container_name: nginx-container
     build:
       context: srcs/nginx
@@ -23,6 +26,8 @@ services:
     networks:
       - my-network
   wordpress-service:
+    depends_on:
+      -  maria-db-service
     container_name: wordpress-container
     build:
       context: srcs/WordPress
