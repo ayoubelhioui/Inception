@@ -10,4 +10,3 @@ wp core download --allow-root
 rm -rf wp-config-sample.php
 mv /wp-config.php wp-config-sample.php
 /usr/sbin/php-fpm7.3 -F -R
-
