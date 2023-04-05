@@ -1,5 +1,5 @@
 FROM debian:buster
-RUN apt-get update && apt-get install php-fpm wget vim -y
+RUN apt-get update && apt-get install php-fpm php-mysql mariadb-client wget vim -y
 COPY ./includes/script.sh /script.sh
 COPY ./includes/wp.conf /etc/php/7.3/fpm/pool.d/wwww.conf
 COPY ./includes/wp-config.php /wp-config.php
