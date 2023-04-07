@@ -10,4 +10,4 @@ wp core download --allow-root
 rm -rf wp-config-sample.php
 mv /wp-config.php wp-config.php
 wp core install --url="localhost" --title="Example" --admin_user="admin" --admin_password="password" --admin_email="admin@example.com" --allow-root
-/usr/sbin/php-fpm7.3 -F
+exec /usr/sbin/php-fpm7.3 -F

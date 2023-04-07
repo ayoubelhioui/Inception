@@ -6,11 +6,11 @@ mkdir -p /run/mysqld
 chown mysql:mysql /run/mysqld
 service mysql start
 mysql << EOF
-CREATE DATABASE IF NOT EXISTS mydb;
-CREATE USER 'ayoub'@'%' IDENTIFIED BY '123456789';
-GRANT ALL PRIVILEGES ON mydb.* TO 'ayoub'@'%';
+CREATE DATABASE IF NOT EXISTS $DATABASE_NAME;
+CREATE USER '$USERNAME'@'%' IDENTIFIED BY '$PASSWORD';
+GRANT ALL PRIVILEGES ON $DATABASE_NAME.* TO '$USERNAME'@'%';
 FLUSH PRIVILEGES;
 exit
 EOF
 service mysql stop
-mysqld -user=ayoub
+exec mysqld -user=$USERNAME

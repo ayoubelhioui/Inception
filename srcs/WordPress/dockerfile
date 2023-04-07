@@ -5,4 +5,4 @@ COPY ./includes/wp.conf /etc/php/7.3/fpm/pool.d/wwww.conf
 COPY ./includes/wp-config.php /wp-config.php
 RUN chmod +x script.sh
 EXPOSE 9000
-CMD ["sh", "script.sh"]
+CMD ["./script.sh"]

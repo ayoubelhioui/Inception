@@ -1,6 +1,8 @@
 version: "3.8"
 services:
   maria-db-service:
+    env_file:
+      - ./.env
     hostname: mariadb
     container_name: mariadb-container
     build:
@@ -13,6 +15,8 @@ services:
     networks:
       - my-network
   nginx-service:
+    env_file:
+      - ./.env
     depends_on:
       -  wordpress-service
     container_name: nginx-container
@@ -26,6 +30,8 @@ services:
     networks:
       - my-network
   wordpress-service:
+    env_file:
+      - ./.env
     depends_on:
       -  maria-db-service
     container_name: wordpress-container
