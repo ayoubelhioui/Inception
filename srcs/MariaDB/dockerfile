@@ -1,7 +1,6 @@
 FROM debian:buster
 RUN apt-get update && apt-get install -y mariadb-server
 COPY ./includes/script.sh ./script.sh
-COPY includes/50-server.conf /etc/mysql/my.cnf
+COPY includes/mariadb.conf /etc/mysql/my.cnf
 RUN chmod +x ./script.sh
-EXPOSE 3306
 CMD ["./script.sh"]

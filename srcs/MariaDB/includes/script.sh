@@ -13,4 +13,4 @@ FLUSH PRIVILEGES;
 exit
 EOF
 service mysql stop
-exec mysqld -user=$USERNAME
+exec mysqld #-user=$USERNAME
