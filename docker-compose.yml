@@ -48,4 +48,14 @@ networks:
   my-network:
 volumes:
   wordpress:
+    driver: local
+    driver_opts:
+      device: /home/ael-hiou/data/wordpress
+      o: bind
+      type: none
   mysql:
+    driver: local
+    driver_opts:
+      device: /home/ael-hiou/data/mysql
+      o: bind
+      type: none
