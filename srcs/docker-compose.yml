@@ -6,7 +6,7 @@ services:
     hostname: mariadb
     container_name: mariadb-container
     build:
-      context: srcs/MariaDB
+      context: requirements/MariaDB
       dockerfile: dockerfile
     volumes:
       - mysql:/var/lib/mysql
@@ -21,7 +21,7 @@ services:
       -  wordpress-service
     container_name: nginx-container
     build:
-      context: srcs/nginx
+      context: requirements/nginx
       dockerfile: dockerfile
     ports:
       - "443:443"
@@ -36,7 +36,7 @@ services:
       -  maria-db-service
     container_name: wordpress-container
     build:
-      context: srcs/WordPress
+      context: requirements/WordPress
       dockerfile: dockerfile
     ports:
         - "9000:9000"
