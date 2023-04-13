@@ -1,7 +1,6 @@
 #!/bin/sh
 
 mysql_install_db
-
 mkdir -p /run/mysqld
 chown mysql:mysql /run/mysqld
 service mysql start
@@ -13,4 +12,6 @@ FLUSH PRIVILEGES;
 exit
 EOF
 service mysql stop
-exec mysqld
+#exec mysqld
+exec mysqld --console
+
