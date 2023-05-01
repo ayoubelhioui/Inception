@@ -1,6 +1,5 @@
 FROM debian:buster
 RUN apt-get update && apt-get install php-fpm php-mysql mariadb-client wget vim -y
 COPY ./tools/script.sh /script.sh
-# COPY ./tools/wp.conf /etc/php/7.3/fpm/pool.d/wwww.conf
 RUN chmod +x script.sh
-ENTRYPOINT ["./script.sh"]
+ENTRYPOINT ["bash", "script.sh"]
