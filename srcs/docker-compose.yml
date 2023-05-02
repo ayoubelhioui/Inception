@@ -26,14 +26,14 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/wordpress
     networks:
       - my-network
   wordpress-service:
     env_file:
       - ./.env
     depends_on:
-      -  maria-db-service
+      - maria-db-service
     container_name: wordpress-container
     build:
       context: requirements/WordPress
@@ -41,7 +41,7 @@ services:
     ports:
         - "9000:9000"
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/wordpress
     networks:
       - my-network
 networks:

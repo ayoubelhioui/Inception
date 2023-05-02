@@ -1,12 +1,12 @@
 #!/bin/bash
-mkdir -p /var/www/html
+mkdir -p /var/www/wordpress
 mkdir -p /run/php
-cd /var/www/html
+cd /var/www/wordpress
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
-mv wp-cli.phar /usr/local/bin/xx
+mv wp-cli.phar /usr/local/bin/wp
 wp core download --allow-root
-mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
 sed -i "s/username_here/$USERNAME/g" wp-config.php
 sed -i "s/password_here/$PASSWORD/g" wp-config.php
 sed -i "s/localhost/$HOST/g" wp-config.php
